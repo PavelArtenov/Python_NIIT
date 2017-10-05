@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'coolapp/base.html' %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinopoisk</title>
+    <style type="text/css">
+           * { margin: 0; padding: 0; }
+           p { padding: 10px; }
+           #left { position: absolute; left: 40; top: 100; width: 50%; }
+           #right { position: absolute; right: 0; top: 0; width: 50%; }
+
+    </style>
+</head>
+<body>
+<div id="left">
+    {% for film in Films %}
+    <h2 align="center"><a href="{{ film.id }}">{{ film.name }}</a></h2>
+    {% endfor %}
+    <br> </br>
+    <b>
+        <div align="center">The list will be updated...</div>
+    </b>
+    <h3><a href="http://localhost:8000/index/add_film/">Добавить фильм в базу</a></h3>
+</div>
+<div id="right" align="right">
+    <p>{{ Weather.city }}</p>
+    <p>Скорость ветра {{ Weather.wind }} м/c</p>
+    <p>Минимальная температура {{ Weather.temp_min }}c</p>
+    <p>Максимальная температура {{ Weather.temp_max }}c</p>
+</div>
+
+
+</body>
+{% endblock content %}
